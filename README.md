@@ -1,0 +1,4 @@
+# Sistema para la evaluación de equipamientos de cercanía
+## Caso de estudio en Valencia
+
+El objetivo principal de este trabajo es implementar una herramienta que, siguiendo el método de las isócronas, permita evaluar el grado de disponibilidad en los domicilios de Valencia de distintos servicios municipales, tales como escuelas, centros deportivos, museos, bibliotecas y otros cuya información georreferenciada se puede descargar desde el portal de datos abiertos del ayuntamiento de Valencia, una urbe que ha apostado por un modelo de ciudad inteligente, compartiendo públicamente multitud de indicadores e información geográfica, aunque la herramienta debe permitir elegir otras fuentes de datos.
