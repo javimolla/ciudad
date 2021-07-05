@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.5.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>es.javimolla</groupId>
 	<artifactId>city</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>City services</name>
 	<description>Sistema para la evaluación de servicios cercanos</description>
+
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.geotools.version>24.2</org.geotools.version>
+
+		<log.hibernate.level>TRACE</log.hibernate.level>
+		<log.level>ERROR</log.level>
+
+		<datasource.driverClassName>org.postgresql.Driver</datasource.driverClassName>
+		<datasource.url>jdbc:postgresql://172.16.31.128:5432/ciudad</datasource.url>
+		<datasource.username>ciudad</datasource.username>
+		<datasource.password>ciudad</datasource.password>
+		<hibernate.generate_statistics>false</hibernate.generate_statistics>
+		<hibernate.show_sql>false</hibernate.show_sql>
+		<jpa.defaultSchema>ciudad</jpa.defaultSchema>
+		<jpa.dialect>org.hibernate.spatial.dialect.postgis.PostgisPG94Dialect</jpa.dialect>
+		<jpa.generateDdl>false</jpa.generateDdl>
+		<jpa.hibernate.ddlAuto>none</jpa.hibernate.ddlAuto>
+		<jpa.showSql>true</jpa.showSql>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -31,6 +51,35 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-spatial</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-referencing</artifactId>
+			<version>${org.geotools.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-geometry</artifactId>
+			<version>${org.geotools.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-epsg-hsql</artifactId>
+			<version>${org.geotools.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vividsolutions</groupId>
+			<artifactId>jts</artifactId>
+			<version>1.13</version>
 		</dependency>
 	</dependencies>
 
