@@ -29,7 +29,7 @@
 		<datasource.password>ciudad</datasource.password>
 		<hibernate.generate_statistics>false</hibernate.generate_statistics>
 		<hibernate.show_sql>false</hibernate.show_sql>
-		<jpa.defaultSchema>ciudad</jpa.defaultSchema>
+		<jpa.defaultSchema>city</jpa.defaultSchema>
 		<jpa.dialect>org.hibernate.spatial.dialect.postgis.PostgisPG94Dialect</jpa.dialect>
 		<jpa.generateDdl>false</jpa.generateDdl>
 		<jpa.hibernate.ddlAuto>none</jpa.hibernate.ddlAuto>
