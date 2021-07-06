@@ -49,7 +49,7 @@ BEGIN
 	SELECT id::int4 FROM ways_vertices_pgr order by ST_Distance(the_geom, ST_Transform(geom, 4326)) LIMIT 1 INTO vertex_id;
 	SELECT COUNT(*) FROM isochrones WHERE gid = vertex_id INTO origin_check;
 	IF (origin_check = 0) THEN
-        INSERT INTO isochrones (gid, isochrone) VALUES (vertex_id, get_isochrone(vertex_id));
+        INSERT INTO isochrones (gid, the_geom) VALUES (vertex_id, get_isochrone(vertex_id));
 	END IF;
 	DELETE FROM isochrones_portals WHERE gid = geom_id;
 	INSERT INTO isochrones_portals (gid, isochrone) VALUES (geom_id, vertex_id);
