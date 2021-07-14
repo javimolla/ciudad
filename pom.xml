@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.1</version>
+		<version>2.4.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>es.javimolla</groupId>
@@ -21,7 +21,7 @@
 		<org.geotools.version>24.2</org.geotools.version>
 
 		<log.hibernate.level>TRACE</log.hibernate.level>
-		<log.level>ERROR</log.level>
+		<log.level>DEBUG</log.level>
 
 		<datasource.driverClassName>org.postgresql.Driver</datasource.driverClassName>
 		<datasource.url>jdbc:postgresql://172.16.31.128:5432/ciudad</datasource.url>
@@ -80,6 +80,11 @@
 			<groupId>com.vividsolutions</groupId>
 			<artifactId>jts</artifactId>
 			<version>1.13</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.4</version>
 		</dependency>
 	</dependencies>
 

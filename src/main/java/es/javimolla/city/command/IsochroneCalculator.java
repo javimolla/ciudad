@@ -3,6 +3,8 @@ package es.javimolla.city.command;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +12,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import es.javimolla.city.entity.Isochrone;
 import es.javimolla.city.entity.Portal;
+import es.javimolla.city.entity.PortalIsochrone;
+import es.javimolla.city.exception.IsochroneExistsException;
 import es.javimolla.city.repository.IsochroneRepository;
+import es.javimolla.city.repository.PortalIsochroneRepository;
 import es.javimolla.city.repository.PortalRepository;
 
 @Component
@@ -23,6 +29,9 @@ public class IsochroneCalculator implements CommandLineRunner {
 
 	@Autowired
 	private IsochroneRepository isochroneRepository;
+	
+	@Autowired
+	private PortalIsochroneRepository portalIsochroneRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -34,10 +43,10 @@ public class IsochroneCalculator implements CommandLineRunner {
 			Portal portal = getPortal(portalId);
 			if (portal == null)
 				return;
-			isochroneRepository.calculate(portal);
+			calculate(portal);
 
 		} else {
-			getPortales().forEach(portal -> isochroneRepository.calculate(portal));
+			getPortales().forEach(portal -> calculate(portal));
 		}
 	}
 
@@ -71,5 +80,19 @@ public class IsochroneCalculator implements CommandLineRunner {
 	private List<Portal> getPortales() {
 		logger.debug("Getting all portals");
 		return portalRepository.findByIsochroneIsNull();
+	}
+
+	@Transactional
+	private void calculate(Portal portal) {
+		Isochrone isochrone;
+		try {
+			isochrone = isochroneRepository.findByPortal(portal);
+		} catch (IsochroneExistsException e) {
+			// If it already exists, do nothing
+			return;
+		}
+
+		isochroneRepository.save(isochrone);
+		portalIsochroneRepository.save(new PortalIsochrone(portal, isochrone));
 	}
 }

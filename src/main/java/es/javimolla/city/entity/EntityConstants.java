@@ -7,4 +7,5 @@ public class EntityConstants {
     public final static String PORTALS = "portals";
     public final static String PORTALS_ISOCHRONES = "isochrones_portals";
     public final static String STREETS = "streets";
+    public final static String VERTEX = "ways_vertices_pgr";
 }

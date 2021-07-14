@@ -22,10 +22,6 @@ public class Portal extends FeatureGeomGid implements Serializable {
 
 	@Column(name = "portal_number")
 	private Long number;
-
-	@JoinColumn(name = "street_id", referencedColumnName = "street_id", insertable = false, updatable = false)
-	@ManyToOne
-	private Street street;
 	
 	@JoinTable(name = EntityConstants.PORTALS_ISOCHRONES, joinColumns = {
 			@JoinColumn(name = "gid", referencedColumnName = "gid") }, inverseJoinColumns = {
