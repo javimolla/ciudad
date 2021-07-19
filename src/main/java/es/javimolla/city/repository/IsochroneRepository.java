@@ -1,6 +1,7 @@
 package es.javimolla.city.repository;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
@@ -36,6 +37,12 @@ public class IsochroneRepository {
 				.createNativeQuery(String.format("SELECT %s as gid, get_isochrone(:vertexId) as the_geom", vertexId),
 						Isochrone.class)
 				.setParameter("vertexId", vertexId).setMaxResults(1).getSingleResult();
+	}
+
+	public List<Isochrone> findByStatsIsNull() {
+		return entityManager.createQuery(
+				"select e from Isochrone e where gid not in (select distinct id.gid from IsochroneStatistic)",
+				Isochrone.class).setMaxResults(100).getResultList();
 	}
 	
 	public void save(Isochrone isochrone) {

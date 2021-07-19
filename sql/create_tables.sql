@@ -37,9 +37,9 @@ CREATE TABLE isochrones_portals (
 
 -- This table stores the number of equipments by layer
 CREATE TABLE isochrones_statistics (
-	isochrone int4 NOT NULL,
+	gid int4 NOT NULL,
 	layer text NOT NULL,
 	equipments int4 NOT NULL,
-	CONSTRAINT isochrones_statistics_pk PRIMARY KEY (isochrone, layer),
-	CONSTRAINT isochrones_isochro_stats_fk FOREIGN KEY (isochrone) REFERENCES isochrones(gid) ON DELETE CASCADE
+	CONSTRAINT isochrones_statistics_pk PRIMARY KEY (gid, layer),
+	CONSTRAINT isochrones_isochro_stats_fk FOREIGN KEY (gid) REFERENCES isochrones(gid) ON DELETE CASCADE
 );

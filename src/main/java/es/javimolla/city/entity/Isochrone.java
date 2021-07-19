@@ -9,4 +9,6 @@ import javax.persistence.Table;
 @Table(name = EntityConstants.ISOCHRONES)
 public class Isochrone extends FeatureGeomGid implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	public static final Integer DISTANCE_WALKING = 1250;
 }

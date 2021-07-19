@@ -1,0 +1,98 @@
+[
+  {
+    "name": "v_education_centers",
+    "description": "Centros educativos",
+    "fields": [
+      {
+        "name": "name",
+        "alias": "Nombre"
+      }
+    ],
+    "intervals": [
+      {
+        "name": "Bajo"
+      },
+      {
+        "name": "Normal",
+        "minimum": 50,
+        "maximum": 60
+      },
+      {
+        "name": "Alto"
+      }
+    ]
+  },
+  {
+    "name": "v_cultural_centers",
+    "description": "Centros culturales",
+    "fields": [
+      {
+        "name": "category",
+        "alias": "Categoría"
+      },
+      {
+        "name": "name",
+        "alias": "Nombre"
+      }
+    ],
+    "intervals": [
+      {
+        "name": "Bajo"
+      },
+      {
+        "name": "Normal",
+        "minimum": 6,
+        "maximum": 10
+      },
+      {
+        "name": "Alto"
+      }
+    ]
+  },
+  {
+    "name": "v_sports_centers",
+    "description": "Centros deportivos",
+    "fields": [
+      {
+        "name": "name",
+        "alias": "Nombre"
+      }
+    ],
+    "intervals": [
+      {
+        "name": "Bajo"
+      },
+      {
+        "name": "Normal",
+        "minimum": 6,
+        "maximum": 10
+      },
+      {
+        "name": "Alto"
+      }
+    ]
+  },
+  {
+    "name": "v_public_transport",
+    "description": "Paradas de transporte público",
+    "fields": [
+      {
+        "name": "name",
+        "alias": "Nombre"
+      }
+    ],
+    "intervals": [
+      {
+        "name": "Bajo"
+      },
+      {
+        "name": "Normal",
+        "minimum": 6,
+        "maximum": 10
+      },
+      {
+        "name": "Alto"
+      }
+    ]
+  }
+]

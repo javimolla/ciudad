@@ -4,17 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @MappedSuperclass
+@Getter
+@Setter
 public abstract class EntityGid {
 	@Id
 	@Column(name = "gid")
 	private Integer gid;
-
-	public Integer getGid() {
-		return gid;
-	}
-
-	public void setGid(Integer gid) {
-		this.gid = gid;
-	}
 }
