@@ -123,9 +123,7 @@ public class EquipmentReporter implements CommandLineRunner {
 		isochroneStatisticRepository.deleteByIdGid(isochrone.getGid());
 		layersEquipments.forEach((layer, equipments) -> {
 			IsochroneStatistic isochroneStatistic = new IsochroneStatistic();
-			IsochroneStatisticPK id = new IsochroneStatisticPK();
-			id.setGid(isochrone.getGid());
-			id.setLayer(layer.getName());
+			IsochroneStatisticPK id = new IsochroneStatisticPK(isochrone.getGid(), layer.getName());
 			isochroneStatistic.setId(id);
 			isochroneStatistic.setEquipments(equipments.size());
 			isochroneStatisticRepository.save(isochroneStatistic);

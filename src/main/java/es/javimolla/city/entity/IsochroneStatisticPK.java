@@ -7,10 +7,14 @@ import javax.persistence.Embeddable;
 
 import org.hibernate.annotations.NaturalId;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Embeddable
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class IsochroneStatisticPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 

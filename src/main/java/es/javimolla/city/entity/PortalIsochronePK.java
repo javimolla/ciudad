@@ -8,23 +8,17 @@ import javax.persistence.Embeddable;
 import org.hibernate.annotations.NaturalId;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Embeddable
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 public class PortalIsochronePK implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	public PortalIsochronePK() {
-	}
 
 	@NaturalId
 	@Column(name = "gid")
 	private Integer gid;
-	
 	@NaturalId
 	@Column(name = "isochrone")
 	private Integer isochrone;
